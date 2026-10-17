@@ -1,0 +1,37 @@
+name: 问题反馈
+description: 提供复现步骤，帮助定位界面或请求行为问题。
+title: '[Bug] '
+body:
+  - type: markdown
+    attributes:
+      value: 请勿提交真实 Token、Cookie、密码或其他敏感数据。请求示例请使用可公开的测试数据。
+  - type: input
+    id: environment
+    attributes:
+      label: 环境
+      description: 浏览器版本、操作系统、QBar 版本或提交号。
+      placeholder: Chrome 版本 / macOS 版本 / QBar 0.1.0
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: 复现步骤
+      description: 请注明使用已加载的扩展，还是开发网页预览。
+      placeholder: |
+        1. 打开 QBar 面板
+        2. …
+        3. …
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: 预期行为与实际结果
+    validations:
+      required: true
+  - type: textarea
+    id: sample
+    attributes:
+      label: 请求示例、截图或日志
+      description: 可附已脱敏的 cURL 或 Raw 请求，以及相关错误信息。

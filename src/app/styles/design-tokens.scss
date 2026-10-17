@@ -1,0 +1,56 @@
+// Semantic roles shared by the workbench and Settings; fixed light/dark palettes.
+.qbar-app {
+  --native-font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial,
+    sans-serif;
+  --native-surface: #fff;
+  --native-canvas: #f8fafd;
+  --native-toolbar: #edf2fa;
+  --native-surface-raised: #f3f6fc;
+  --native-border: #dadce0;
+  --native-border-subtle: #e8eaed;
+  --native-control-border: #9aa0a6;
+  --native-hover: #e9edf3;
+  --native-pressed: #dfe7f3;
+  --native-text: #1f1f1f;
+  --native-muted: #5f6368;
+  --native-disabled: #8b9097;
+  --native-primary: #0b57d0;
+  --native-on-primary: #fff;
+  --native-selection: #d3e3fd;
+  --native-on-selection: #0842a0;
+  --native-row: #f8fafd;
+  --native-json-key: #881391;
+  --native-json-string: #a31515;
+  --native-json-number: #1a4ec7;
+  --native-json-literal: #7b1fa2;
+  --native-focus: #0b57d0;
+  --native-radius: 6px;
+  --native-control-height: 28px;
+  --native-chevron: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='m3 4.5 3 3 3-3' fill='none' stroke='%23444746' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+
+  &.v-theme--dark {
+    --native-surface: #1f1f1f;
+    --native-canvas: #18191b;
+    --native-toolbar: #282a2d;
+    --native-surface-raised: #282a2d;
+    --native-border: #3c4043;
+    --native-border-subtle: #34373c;
+    --native-control-border: #747775;
+    --native-hover: #33363b;
+    --native-pressed: #3d434d;
+    --native-text: #e3e3e3;
+    --native-muted: #b7bcc4;
+    --native-disabled: #777d86;
+    --native-primary: #a8c7fa;
+    --native-on-primary: #062e6f;
+    --native-selection: #26436e;
+    --native-on-selection: #d3e3fd;
+    --native-row: #24262a;
+    --native-json-key: #c792ea;
+    --native-json-string: #a5d6a7;
+    --native-json-number: #a8c7fa;
+    --native-json-literal: #c792ea;
+    --native-focus: #a8c7fa;
+    --native-chevron: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='m3 4.5 3 3 3-3' fill='none' stroke='%23c4c7c5' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  }
+}

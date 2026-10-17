@@ -1,0 +1,16 @@
+diff --git a/src/parsers/base.js b/src/parsers/base.js
+index cdaccd25f96dd655b81e4d4e35e5e71335d890de..e8771282e3aaf2a857baf64798f18c6df41bc27c 100644
+--- a/src/parsers/base.js
++++ b/src/parsers/base.js
+@@ -34,11 +34,8 @@ class HttpZBaseParser {
+         throw HttpZError.get('Incorrect header row format, expected: Name: Value', hRow)
+       }
+ 
+-      // quoted string must be parsed as a single value (https://tools.ietf.org/html/rfc7230#section-3.2.6)
+       if (_.isNil(value)) {
+         value = ''
+-      } else if (consts.regexps.quoutedHeaderValue.test(value)) {
+-        value = _.trim(value, '"')
+       }
+ 
+       return {

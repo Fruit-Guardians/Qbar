@@ -1,0 +1,66 @@
+on:
+  push:
+    tags:
+      - 'v*'
+
+name: Publish Release
+
+jobs:
+  build:
+    name: Publish Release
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Prepare environment variables
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const ref = '${{ github.ref }}'
+
+            const isPrerelease = /beta|rc/.test(ref)
+
+            core.exportVariable('IS_PRERELEASE', isPrerelease)
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '22'
+      - name: Install dependencies
+        run: |
+          if ! yarn install --immutable; then
+            cat /tmp/xfs-*/buildfile.log 2>/dev/null || true
+            exit 1
+          fi
+      - name: Verify release metadata
+        run: yarn release:check "$GITHUB_REF_NAME"
+      - name: Verify source
+        run: yarn check
+      - name: Pack extension
+        run: |
+          yarn dist:chrome
+          yarn dist:firefox
+      - name: Generate checksums
+        run: sha256sum QBar-chrome.zip QBar-firefox.zip > SHA256SUMS.txt
+      - name: Check existing release
+        id: release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if gh release view "$GITHUB_REF_NAME" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            echo "exists=true" >> "$GITHUB_OUTPUT"
+            echo "Release already exists; preserving its verified assets."
+          else
+            echo "exists=false" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Create Release
+        if: steps.release.outputs.exists != 'true'
+        uses: softprops/action-gh-release@v1
+        with:
+          prerelease: ${{ env.IS_PRERELEASE }}
+          body_path: docs/releases/${{ github.ref_name }}.md
+          files: |
+            QBar-chrome.zip
+            QBar-firefox.zip
+            SHA256SUMS.txt

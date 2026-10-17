@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="320" viewBox="0 0 1200 320" role="img" aria-labelledby="title description">
+  <title id="title">QBar</title>
+  <desc id="description">HTTP requests. Right in DevTools.</desc>
+  <rect width="1200" height="320" rx="16" fill="#18191b"/>
+  <g transform="translate(70 78) scale(1.28)">
+    <path fill="#4285f4" d="M50 16h20c19 0 34 15 34 34v14H84V50c0-8-6-14-14-14H50c-8 0-14 6-14 14v20c0 8 6 14 14 14h14v20H50c-19 0-34-15-34-34V50c0-19 15-34 34-34Z"/>
+    <path fill="#34a853" d="m68 56 26 26V68h16v42H68V94h14L56 68Z"/>
+  </g>
+  <g font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif">
+    <text x="276" y="160" fill="#e3e3e3" font-size="72" font-weight="600" letter-spacing="-3">QBar</text>
+    <text x="279" y="206" fill="#b7bcc4" font-size="23">HTTP requests. Right in DevTools.</text>
+    <text x="1090" y="270" fill="#8f969f" font-size="14" text-anchor="end" letter-spacing="1.5">CHROME + FIREFOX</text>
+  </g>
+</svg>

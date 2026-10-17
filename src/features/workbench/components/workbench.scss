@@ -1,0 +1,175 @@
+.workbench-tools {
+  width: 460px;
+  max-width: 52%;
+  min-width: 310px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  border-left: 1px solid var(--native-border);
+  background: rgb(var(--v-theme-surface));
+  .wb-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px 10px;
+    background: var(--native-toolbar);
+    border-bottom: 1px solid var(--native-border);
+  }
+  .wb-tabs {
+    display: flex;
+    flex-shrink: 0;
+    overflow-x: auto;
+    border-bottom: 1px solid var(--native-border);
+  }
+  .wb-tabs button {
+    padding: 0 12px;
+    height: 34px;
+    font: inherit;
+    border-bottom: 2px solid transparent;
+    transition:
+      background 0.15s ease,
+      color 0.15s ease,
+      border-color 0.15s ease;
+  }
+  .wb-tabs button[aria-selected='true'] {
+    background: var(--native-surface-raised);
+    font-weight: 500;
+    border-bottom-color: rgb(var(--v-theme-primary));
+    color: rgb(var(--v-theme-primary));
+  }
+  .wb-tabs button:hover {
+    background: var(--native-hover);
+  }
+  .wb-panels {
+    overflow: auto;
+    min-height: 0;
+    flex: 1;
+  }
+  .wb-section {
+    padding: 10px;
+  }
+  .wb-actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  .wb-actions select {
+    width: auto;
+  }
+  .wb-input {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    padding: 5px;
+    border: 1px solid var(--native-border);
+    border-radius: 6px;
+    background: rgb(var(--v-theme-surface));
+    color: inherit;
+    font:
+      12px ui-monospace,
+      monospace;
+  }
+  .wb-note {
+    color: var(--native-muted);
+    font-size: 11px;
+    line-height: 1.5;
+    margin: 8px 0;
+  }
+  .wb-error {
+    color: rgb(var(--v-theme-error));
+    margin: 8px 0;
+    overflow-wrap: anywhere;
+  }
+  .wb-capture {
+    padding: 8px 0;
+    border-bottom: 1px solid var(--native-border);
+  }
+  .wb-capture .wb-actions {
+    margin-bottom: 4px;
+  }
+  .wb-capture button {
+    margin-left: auto;
+  }
+  .wb-url {
+    font-family: ui-monospace, monospace;
+    overflow-wrap: anywhere;
+  }
+  .wb-query-row {
+    display: grid;
+    grid-template-columns: 14px 1fr 1fr 18px;
+    align-items: center;
+    gap: 5px;
+    margin-top: 6px;
+  }
+  .wb-json-input {
+    min-height: 160px;
+    resize: vertical;
+    margin: 8px 0;
+  }
+  .wb-json-tree {
+    border-block: 1px solid var(--native-border);
+    margin: 8px 0;
+    padding: 6px 0;
+    max-height: 330px;
+    overflow: auto;
+  }
+  .wb-json-node {
+    padding-left: 9px;
+    border-left: 1px solid var(--native-border-subtle);
+    margin-left: 3px;
+  }
+  .wb-json-node code {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+  }
+  .wb-json-node button {
+    font-size: 10px;
+    margin-left: 6px;
+  }
+  .wb-json-leaf {
+    padding: 3px 0;
+  }
+  summary {
+    padding: 4px 0;
+    cursor: pointer;
+  }
+  .wb-diff-section {
+    border-top: 1px solid var(--native-border);
+  }
+  .wb-diff-section pre {
+    font:
+      11px/1.6 ui-monospace,
+      monospace;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+  }
+  .wb-diff-add {
+    background: rgba(50, 170, 90, 0.15);
+  }
+  .wb-diff-remove {
+    background: rgba(220, 70, 70, 0.15);
+  }
+  .jwt-inspector {
+    max-height: none !important;
+    box-shadow: none !important;
+  }
+  .jwt-json-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+@media (max-width: 1024px) {
+  .panel-layout:has(.workbench-tools:not([style*='display: none'])) {
+    flex-direction: column;
+  }
+  .workbench-tools {
+    max-width: 100%;
+    width: 100%;
+    min-width: 0;
+    height: 50%;
+    border-left: 0;
+    border-top: 1px solid var(--native-border);
+  }
+}

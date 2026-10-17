@@ -1,0 +1,22 @@
+name: 功能建议
+description: 告诉我们哪个操作还不够顺手。
+title: '[Feature] '
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: 你遇到了什么问题？
+      description: 描述具体场景，以及当前需要怎样绕过这个问题。
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: 你希望怎样改进？
+      description: 可以附操作流程或示意图。
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: 其他方案或补充信息

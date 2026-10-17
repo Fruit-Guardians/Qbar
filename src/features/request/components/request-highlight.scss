@@ -1,0 +1,153 @@
+.request-source-editor {
+  --request-method: #8250df;
+  --request-path: #116329;
+  --request-header: #0550ae;
+  --request-value: #24292f;
+  --request-string: #0a3069;
+  --request-number: #953800;
+  --request-literal: #cf222e;
+  position: relative;
+  display: flex;
+  flex: 1;
+  min-height: 0;
+  min-width: 0;
+  isolation: isolate;
+  .request-highlight-layer,
+  .request-highlight-input {
+    font:
+      12px/18px Menlo,
+      Consolas,
+      'Liberation Mono',
+      monospace;
+    letter-spacing: normal;
+    text-align: left;
+    text-indent: 0;
+    text-transform: none;
+    tab-size: 2;
+    padding: 12px;
+    border: 0;
+    white-space: pre;
+    overflow-wrap: normal;
+    word-break: normal;
+    border-radius: 0;
+  }
+  .request-highlight-layer {
+    position: absolute;
+    inset: 0 auto auto 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    pointer-events: none;
+    color: rgb(var(--v-theme-on-surface));
+    &::after {
+      content: ' ';
+    }
+    span {
+      font-weight: normal;
+      font-style: normal;
+    }
+    .request-method {
+      color: var(--request-method);
+    }
+    .request-path {
+      color: var(--request-path);
+    }
+    .request-protocol {
+      color: var(--native-muted);
+    }
+    .request-header,
+    .hljs-attr {
+      color: var(--request-header);
+    }
+    .request-value {
+      color: var(--request-value);
+    }
+    .hljs-string {
+      color: var(--request-string);
+    }
+    .hljs-number {
+      color: var(--request-number);
+    }
+    .hljs-literal {
+      color: var(--request-literal);
+    }
+    .hljs-punctuation {
+      color: var(--native-muted);
+    }
+  }
+  .request-highlight-input {
+    position: relative;
+    z-index: 1;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    caret-color: rgb(var(--v-theme-on-surface));
+    background: transparent;
+    &::placeholder {
+      color: var(--native-muted);
+      -webkit-text-fill-color: var(--native-muted);
+    }
+    &::selection {
+      color: transparent;
+      -webkit-text-fill-color: transparent;
+      background: rgba(var(--v-theme-primary), 0.24);
+    }
+  }
+  &.is-composing {
+    .request-highlight-layer {
+      visibility: hidden;
+    }
+    .request-highlight-input {
+      color: rgb(var(--v-theme-on-surface));
+      -webkit-text-fill-color: rgb(var(--v-theme-on-surface));
+    }
+  }
+}
+.v-theme--dark .request-source-editor {
+  --request-method: #d2a8ff;
+  --request-path: #7ee787;
+  --request-header: #79c0ff;
+  --request-value: #e8eaed;
+  --request-string: #a5d6ff;
+  --request-number: #ffa657;
+  --request-literal: #ff7b72;
+}
+@media (forced-colors: active) {
+  .request-source-editor {
+    .request-highlight-layer {
+      display: none;
+    }
+    .request-highlight-input,
+    .request-highlight-input::selection {
+      color: CanvasText;
+      -webkit-text-fill-color: CanvasText;
+    }
+  }
+}
+
+.request-source-editor.has-gutter {
+  .request-highlight-layer,
+  .request-highlight-input {
+    padding-left: 58px;
+  }
+}
+.request-line-numbers {
+  position: absolute;
+  inset: 0 auto 0 0;
+  z-index: 2;
+  width: 46px;
+  margin: 0;
+  padding: 12px 9px 12px 0;
+  overflow: hidden;
+  border-right: 1px solid var(--native-border-subtle);
+  background: var(--native-canvas);
+  color: var(--native-muted);
+  font:
+    12px/18px Menlo,
+    Consolas,
+    'Liberation Mono',
+    monospace;
+  text-align: right;
+  user-select: none;
+  pointer-events: none;
+}

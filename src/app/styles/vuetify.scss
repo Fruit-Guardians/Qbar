@@ -1,0 +1,22 @@
+@use './variables' as *;
+
+// See also: https://github.com/vuetifyjs/vuetify/issues/15614
+.v-combobox .v-combobox__selection-text {
+  @include ellipsis;
+}
+
+.v-btn .v-btn__append {
+  margin-left: 0;
+}
+
+.v-tooltip .v-overlay__content {
+  background: rgba(var(--v-theme-surface-variant), 0.95);
+}
+
+.v-input--plain-underlined .v-input__details {
+  padding: 8px 0 0;
+}
+
+.v-messages__message {
+  line-height: 14px;
+}
